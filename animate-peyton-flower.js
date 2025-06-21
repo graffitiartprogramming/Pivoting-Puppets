@@ -6,42 +6,42 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower1.png?v=1692736404130"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower1.png?v=1692736404130"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower2.png?v=1692736404549"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower2.png?v=1692736404549"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower3.png?v=1692736404949"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower3.png?v=1692736404949"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower4.png?v=1692736405357"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower4.png?v=1692736405357"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower5.png?v=1692736405846"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower5.png?v=1692736405846"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower4.png?v=1692736405357"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower4.png?v=1692736405357"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower3.png?v=1692736404949"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower3.png?v=1692736404949"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/peytonflower2.png?v=1692736404549"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/peytonflower2.png?v=1692736404549"
           )
         ); 
 

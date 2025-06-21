@@ -6,22 +6,22 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/pritchardfrog1.png?v=1692736191095"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/pritchardfrog1.png?v=1692736191095"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/pritchardfrog2.png?v=1692736191532"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/pritchardfrog2.png?v=1692736191532"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/pritchardfrog3.png?v=1692736192017"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/pritchardfrog3.png?v=1692736192017"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/pritchardfrog2.png?v=1692736191532"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/pritchardfrog2.png?v=1692736191532"
           )
         );
 

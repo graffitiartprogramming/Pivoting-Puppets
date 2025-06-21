@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab1.png?v=1690830503072"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab1.png?v=1690830503072"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab2.png?v=1690830503526"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab2.png?v=1690830503526"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab3.png?v=1690830503936"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab3.png?v=1690830503936"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab4.png?v=1690830504379"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab4.png?v=1690830504379"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab3.png?v=1690830503936"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab3.png?v=1690830503936"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/crab2.png?v=1690830503526"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/crab2.png?v=1690830503526"
           )
         );
 

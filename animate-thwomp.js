@@ -6,128 +6,128 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp5.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp9.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp9.png"
           )
         );
                 this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp11.png"
-          )
-        );
-
-                this.pngArray.push(
-          loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp13.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp11.png"
           )
         );
 
                 this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp13.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp13.png"
           )
         );
 
                 this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp13.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp13.png"
           )
         );
 
                 this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp12.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp13.png"
           )
         );
 
                 this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp11.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp12.png"
+          )
+        );
+
+                this.pngArray.push(
+          loader.load(
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp11.png"
           )
         );
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp10.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp10.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp9.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp9.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp8.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp8.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp7.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp7.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp6.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp6.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp5.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp5.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp4.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp4.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp3.png"
           )
         );
 
                 
                         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/thwomp2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/thwomp2.png"
           )
         );
 

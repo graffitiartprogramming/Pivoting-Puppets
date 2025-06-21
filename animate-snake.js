@@ -8,62 +8,62 @@
         
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/1.png?v=1690316749044"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/1.png?v=1690316749044"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/2.png?v=1690316749473"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/2.png?v=1690316749473"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/3.png?v=1690316749896"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/3.png?v=1690316749896"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/4.png?v=1690316750294"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/4.png?v=1690316750294"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/5.png?v=1690316750678"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/5.png?v=1690316750678"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/6.png?v=1690316751112"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/6.png?v=1690316751112"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/7.png?v=1690316751463"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/7.png?v=1690316751463"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/6.png?v=1690316751112"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/6.png?v=1690316751112"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/5.png?v=1690316750678"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/5.png?v=1690316750678"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/4.png?v=1690316750294"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/4.png?v=1690316750294"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/3.png?v=1690316749896"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/3.png?v=1690316749896"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/2.png?v=16903167494738"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/2.png?v=16903167494738"
           )
         );
         

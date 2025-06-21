@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet301.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet301.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet302.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet302.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet303.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet303.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet304.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet304.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet303.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet303.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet302.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet302.png"
           )
         );
         

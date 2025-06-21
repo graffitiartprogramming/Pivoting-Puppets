@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly1.png?v=1690830325200"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly1.png?v=1690830325200"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly2.png?v=1690830325578"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly2.png?v=1690830325578"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly3.png?v=1690830325904"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly3.png?v=1690830325904"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly4.png?v=1690830326340"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly4.png?v=1690830326340"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly3.png?v=1690830325904"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly3.png?v=1690830325904"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/dragonfly2.png?v=1690830325578"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/dragonfly2.png?v=1690830325578"
           )
         );
 

@@ -6,42 +6,42 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy1.png?v=1692736111376"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy1.png?v=1692736111376"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy2.png?v=1692736111816"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy2.png?v=1692736111816"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy3.png?v=1692736112260"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy3.png?v=1692736112260"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy4.png?v=1692736112612"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy4.png?v=1692736112612"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy5.png?v=1692736112998"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy5.png?v=1692736112998"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy4.png?v=1692736112612"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy4.png?v=1692736112612"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy3.png?v=1692736112260"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy3.png?v=1692736112260"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/fireguy2.png?v=1692736111816"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/fireguy2.png?v=1692736111816"
           )
         );
 

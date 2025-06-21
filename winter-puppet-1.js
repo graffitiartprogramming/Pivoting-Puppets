@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet101.png?v=1691602587224"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet101.png?v=1691602587224"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet102.png?v=1691602587787"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet102.png?v=1691602587787"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet103.png?v=1691602588172"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet103.png?v=1691602588172"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet104.png?v=1691602588591"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet104.png?v=1691602588591"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet103.png?v=1691602588172"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet103.png?v=1691602588172"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/winterpuppet102.png?v=1691602587787"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/winterpuppet102.png?v=1691602587787"
           )
         );
         

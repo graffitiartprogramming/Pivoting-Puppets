@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear4.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/bear2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/bear2.png"
           )
         );
 

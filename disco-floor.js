@@ -7,42 +7,42 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco1-modified.png?v=1693273022002"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco1-modified.png?v=1693273022002"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco2-modified.png?v=1693273021520"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco2-modified.png?v=1693273021520"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco3-modified.png?v=1693273501778"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco3-modified.png?v=1693273501778"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco4-modified.png?v=1693273020900"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco4-modified.png?v=1693273020900"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco5-modified.png?v=1693273020354"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco5-modified.png?v=1693273020354"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco6-modified.png?v=1693273019937"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco6-modified.png?v=1693273019937"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco7-modified.png?v=1693273019392"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco7-modified.png?v=1693273019392"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/disco8-modified.png?v=1693273022508"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/disco8-modified.png?v=1693273022508"
           )
         );
         

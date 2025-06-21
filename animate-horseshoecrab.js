@@ -6,12 +6,12 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/horseshoecrab1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/horseshoecrab1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/horseshoecrab2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/horseshoecrab2.png"
           )
         );
 

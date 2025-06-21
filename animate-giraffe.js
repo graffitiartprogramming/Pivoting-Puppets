@@ -6,52 +6,52 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe1.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe4.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe5.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe6.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe6.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe5.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe4.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe3.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://graffitiartprogramming.github.io/pivoting-puppets/giraffe2.png"
+            "https://graffitiartprogramming.github.io/Pivoting-Puppets/giraffe2.png"
           )
         );
 
