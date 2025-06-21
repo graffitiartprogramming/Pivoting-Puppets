@@ -1,0 +1,460 @@
+<html>
+  <head>
+    <!--    Place the script for aframe here     -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe.min.js"></script>
+    <!-- Link Clicking -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-href-component.min.js"></script>
+    <!--     Place the script for aframe extras here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-extras.js"></script>
+    <script src="movement-controls.js"></script>
+    <!--     Place the script for the environment component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-environment-component.min.js"></script>
+
+    <!--     Place the script for the particle system component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-particle-system-component.min.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-event-set-component.min.js"></script>
+
+    
+    
+    <!--IMPORT ANIMATION JS-->
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//random-animation.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//disco-floor.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-snake.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-aligator.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dinosaur.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dragonfly.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-crab.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-1.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-2.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-3.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-4.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-blueguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-orangeguy.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-ant.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fireguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-giraffe.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-carrot.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-flower.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-bat.js"></script>
+
+    
+
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+        },
+      });
+    </script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!---LINK TRAVERSAL-->
+   
+    
+    
+    
+    
+    
+  </head>
+
+  <body>
+    
+    <a-assets>
+       <a-asset-item
+          id="stage"
+          src="https://graffitiartprogramming.github.io/pivoting-puppets/stage1.gltf?v=1693268043136"
+        ></a-asset-item> 
+    </a-assets>
+    
+    
+    <a-scene
+      fog="type:linear;
+           color: black"
+             vr-mode-ui="enabled: false"
+    >
+      
+      
+      
+          <!---SKY-->
+      
+        <a-sky src="https://graffitiartprogramming.github.io/pivoting-puppets/StreetView2.jpg?v=1693420886262"></a-sky>
+
+      <!-- Asset Management System-->
+
+      
+
+      <!--CAMERA-->
+      
+      <a-entity id="cameraRig" position="0 0 0">
+      <a-entity
+        rotation="0 0 0"
+        id="pov"
+        animation="property: position; startEvents: go"
+      >
+        <a-camera look-controls wasd-controls-enabled="true">
+          <a-entity
+            cursor="rayOrigin: mouse"
+            raycaster="objects: #clickablePlane"
+          >
+          </a-entity>
+        </a-camera>
+      </a-entity>
+      </a-entity>
+      
+       
+      
+
+      
+
+
+
+      
+     
+      
+      
+    
+    <!-- ARTWORKS -->
+      
+      <!---pritchard day-->
+
+      <a-entity rotation="0 0 0" position="8 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-pritchard-bat
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 0 0" position="6 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-pritchard-frog
+          ></a-image>
+        </a-entity>
+    
+            <a-entity rotation="0 0 0" position="4 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-peyton-carrot
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 -20 0" position="2 1 -10">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-peyton-flower
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="0 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-frog
+          ></a-image>
+        </a-entity>
+      
+      
+            <a-entity rotation="0 25 0" position="-2 1 -8">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-fireguy
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="-4 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-ant
+          ></a-image>
+        </a-entity>
+      
+          <a-entity rotation="0 0 0" position="-6 1 -6">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-giraffe
+          ></a-image>
+        </a-entity>
+      
+      
+     
+      
+      
+      <!---DAY2-->
+
+        <a-entity rotation="0 0 0" position="4 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-1
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="2 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-2
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="0 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-3
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="-2 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-4
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 0 0" position="-4 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-orangeguy
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="-6 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-blueguy
+          ></a-image>
+        </a-entity>
+      
+      
+      <a-entity rotation="0 0 0" position="-4 1 -4">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-orangeguy
+          ></a-image>
+        </a-entity>
+      
+       <!--DAY1-->
+
+      
+      <a-entity rotation="0 0 0" position="0 1 -2">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1.5"
+            height="1.5"
+            animate-snake
+                   material="transparent: true; side: double;"
+          ></a-image>
+        </a-entity>
+
+      
+      <a-entity rotation="0 0 0" position="-2 1 -2">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-aligator
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 90 0" position="-4 1 0">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-dinosaur
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 -45 0" position="2 1 -1">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-dragonfly
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 -90 0" position="4 1 1">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-crab
+          ></a-image>
+        </a-entity>
+      
+
+      
+
+    
+
+      
+      
+
+      <a-text
+        value="
+               VR Exhibit designed by Hiroshi Jake Hamade"
+        position=".8 1.3 0.8"
+        rotation="0 -145 0"
+        scale="0.1 0.1 0.1"
+        text="align: right"
+              color="black"
+      ></a-text>
+
+
+
+      
+
+
+      <!--GOTO SCRIPT-->
+<script>
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+var canClick = true; // Set initial click state to true
+var cooldownTime = 100; // Set cooldown time in milliseconds
+var isMouseDown = false; // Set initial mouse state to false
+var mouseUpEvent = new Event('mouseup'); // Create mouseup event
+var clickTimeThreshold = isMobile ? 1000 : 1000; // Set the maximum time between mousedown and mouseup events to 1000 ms for touch events on mobile devices, and 0 ms for mouse click events on desktop devices.
+
+document.getElementById('clickablePlane').addEventListener('mousedown', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  isMouseDown = true; // Set mouse state to true when clicked down
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseup', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  if (isMouseDown && canClick) {
+    var intersection = event.detail.intersection;
+    var distance = intersection.distance;
+    // Minimize accidental clicks by checking if the click was within a reasonable distance from the camera
+    if (distance < 10) {
+      var newPosition = intersection.point;
+      newPosition.y = 1.6; // Adjust the camera height to your liking
+
+      var prevClickTime = event.target.previousClickTime;
+      if (prevClickTime) {
+        var currentTime = Date.now();
+        var deltaTime = currentTime - prevClickTime;
+        if (deltaTime <= clickTimeThreshold) {
+          document.querySelector('a-camera').setAttribute('animation', 'property: position; to: ' + newPosition.x + ' ' + newPosition.y + ' ' + newPosition.z + '; dur: 500');
+
+          canClick = false; // Set click state to false
+          setTimeout(function () {
+            canClick = true; // Reset click state to true after cooldown
+          }, cooldownTime);
+        }
+      }
+
+      event.target.previousClickTime = Date.now(); // Store the current click time
+    }
+  }
+  isMouseDown = false; // Reset mouse state to false on click up
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseleave', function () {
+  if (isMouseDown) {
+    document.getElementById('clickablePlane').dispatchEvent(mouseUpEvent); // Trigger mouseup event if mouse leaves clickablePlane area while still clicked down
+  }
+  isMouseDown = false; // Reset mouse state to false on mouse leave
+});
+
+</script>
+
+    </a-scene>
+  </body>
+</html>
+

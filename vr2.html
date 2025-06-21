@@ -1,0 +1,633 @@
+<html>
+  <title>vr2</title>
+  <head>
+    
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N085VGW7DR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N085VGW7DR');
+</script>
+    
+    
+    
+    <!--    Place the script for aframe here     -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe.min.js"></script>
+    <!-- Link Clicking -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-href-component.min.js"></script>
+    <!--     Place the script for aframe extras here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-extras.js"></script>
+    <script src="movement-controls.js"></script>
+    <!--     Place the script for the environment component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-environment-component.min.js"></script>
+
+    <!--     Place the script for the particle system component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-particle-system-component.min.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-event-set-component.min.js"></script>
+    
+    
+    
+    <!--IMPORT ANIMATION JS-->
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//random-animation.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//disco-floor.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-snake.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-aligator.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dinosaur.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dragonfly.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-crab.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-1.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-2.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-3.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-4.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-blueguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-orangeguy.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-ant.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fireguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-giraffe.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-carrot.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-flower.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-bat.js"></script>
+    
+        <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-bear.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-thwomp.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fish.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-horseshoecrab.js"></script>
+
+    
+
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+        },
+      });
+    </script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!---LOOK AT CAMERA-->
+   
+    
+    
+    
+    
+    
+  </head>
+
+  <body>
+    
+    <a-assets>
+       <a-asset-item
+          id="stage"
+          src="https://graffitiartprogramming.github.io/pivoting-puppets/rooftop2.gltf?v=1695411742737"
+        ></a-asset-item> 
+    </a-assets>
+    
+    
+    <a-scene
+      fog="type:linear;
+           color: black"
+             vr-mode-ui="enabled: false"
+    >
+      
+      
+      
+      
+      
+          <!---SKY-->
+      
+      <a-sky rotation="180 0 0"
+             src="https://graffitiartprogramming.github.io/pivoting-puppets/discobackground.png?v=1693274583320" scale="0.5 0.5 0.5" material="shader: ios10hls" geometry="">
+</a-sky>
+      <!-- Asset Management System-->
+
+      
+
+      <!--CAMERA-->
+      
+      <a-entity id="cameraRig" position="0 0 0">
+      <a-entity
+        rotation="0 0 0"
+        id="pov"
+        animation="property: position; startEvents: go"
+      >
+        <a-camera look-controls wasd-controls-enabled="true"
+                  id="camera">
+          <a-entity
+            cursor="rayOrigin: mouse"
+            raycaster="objects: #clickablePlane"
+          >
+          </a-entity>
+        </a-camera>
+      </a-entity>
+      </a-entity>
+      
+          
+      
+  
+      
+       <a-plane
+  material="opacity: 1; repeat: 20 10;"
+  position="0 0.2 -5"
+  rotation="-90 225 0"
+  scale="1 1 1"
+  width="5"
+  height="5"
+  disco-floor
+></a-plane>
+      <a-plane
+  id="clickablePlane"
+  material="transparency: true; opacity: 0;"
+  position="-0.47268 0.2 -3.04201" 
+               rotation="-90 225 0"
+  scale="1 1 1"
+  geometry=""
+  width="10"
+  height="8.8"
+></a-plane>
+ 
+     <a-entity gltf-model="#stage" 
+                shadow="cast: false; receive: false"
+                rotation="0 225 0"
+                position="0 -2.75 -3.6"
+               scale="0.75 0.75 0.75"
+                >
+      </a-entity>
+      
+      
+
+      
+      <a-image src="https://graffitiartprogramming.github.io/pivoting-puppets/donutdiscosign.png?v=1694453732583" material="" geometry="" rotation="0 45 0.01" position="-2.27053 2.95322 -7.97528" scale="1.5 1.12 1.04"></a-image>
+      
+      <a-sphere
+                position="0 2.8 -6"
+                scale="0.5 0.5 0.5"
+                material="src:https://graffitiartprogramming.github.io/pivoting-puppets/discoball.png?v=1693273212747;
+                          repeat:8 8;
+                          shader: flat"
+                animation="property: rotation;
+                            easing:inear;
+                             to: 0 360 0;
+                             loop: true; 
+                             dur: 3000;
+                            easing: linear;
+                             autoplay: true"
+                >
+      </a-sphere>
+     
+      
+      
+      <!a-entity light="type: point;
+                         color: #BBB;
+                         intensity: 2;"
+                 position="0 2 -6"><!/a-entity>
+      
+      
+    
+    <!-- ARTWORKS -->
+      
+      <!---pritchard day-->
+
+     <a-entity position="4.58877 1 -2.4856"
+                look-at-camera
+               >
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-pritchard-bat
+                    material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+       
+       
+        </a-entity>
+       
+      
+      <a-entity rotation="0 0 0" position="6 1 -6"
+                 look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-pritchard-frog
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+    
+      <a-entity rotation="0 0 0" position="4 1 -6"
+                 look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-peyton-carrot
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 -20 0" position="-2 1 2"
+                 look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1"
+            height="1"
+            animate-peyton-flower
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 0 0" position="0 1 -8"
+                       look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-frog
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      
+      <a-entity rotation="0 25 0" position="-2.5 1 -6"
+                 look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-fireguy
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+  <a-entity rotation="" position="-1.02518 0.97819 3.17326"
+             look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-ant
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+     <a-entity rotation="" position="0.92096 1 -3.18298"
+                look-at-camera>
+
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-giraffe
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      
+        <a-entity rotation="0 0 0" position="-4.25564 1.16532 -4.16302"
+                      look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1.5"
+            height="2"
+            animate-bear
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+      
+      <a-entity rotation="0 0 0" position="-5.34257 1.6 -1.8775"
+                      look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1.5"
+            height="3"
+            animate-thwomp
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+      
+      
+      <a-entity rotation="0 0 0" position="1.45147 1 0.98461"
+                      look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="0.9"
+            height="0.9"
+            animate-fish
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+
+      
+      
+      <a-entity rotation="0 0 0" position="0.27087 1 2.2842"
+                      look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="0.9"
+            height="0.9"
+            animate-horseshoecrab
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+
+      
+      <!---DAY2-->
+
+        <a-entity rotation="0 -45 0" position="8.56862 1.13656 -3.89595">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-1
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="2 1 -4"
+                       look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-2
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="0 1 -4"
+                       look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-3
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="-2 1 -4"
+                       look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            winter-puppet-4
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      
+      <!---at table--->
+      
+      <a-entity rotation="0 -45 0" position="-8.28717 1.10436 -3.15181">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-orangeguy
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+        <a-entity rotation="0 -45 0" position="-6.94437 1 -4.49002">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-blueguy
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      
+      
+       <!--DAY1-->
+
+      
+      <a-entity rotation="0 0 0" position="0 1 -2"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1.5"
+            height="1.5"
+            animate-snake
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+
+      
+       <a-entity rotation="0 45 -45" position="-2.6664 1.2053 -8.74802">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-aligator
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        
+      
+        </a-entity>
+      
+      <a-entity rotation="0 90 0" position="-4 1 0"
+                 look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-dinosaur
+                    material="alphaTest: 0.5; transparent: true;" 
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 -45 0" position="3.22 1.326 0.887">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-dragonfly
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+      <a-entity rotation="0 -45 0" position="4.362 1 -0.263">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-crab
+                  material="alphaTest: 0.5; transparent: true;" 
+                   
+          ></a-image>
+        </a-entity>
+      
+
+      
+
+    
+
+      
+      
+
+
+
+
+
+      
+
+
+      <!--GOTO SCRIPT-->
+<script>
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+var canClick = true; // Set initial click state to true
+var cooldownTime = 100; // Set cooldown time in milliseconds
+var isMouseDown = false; // Set initial mouse state to false
+var mouseUpEvent = new Event('mouseup'); // Create mouseup event
+var clickTimeThreshold = isMobile ? 1000 : 1000; // Set the maximum time between mousedown and mouseup events to 1000 ms for touch events on mobile devices, and 0 ms for mouse click events on desktop devices.
+
+document.getElementById('clickablePlane').addEventListener('mousedown', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  isMouseDown = true; // Set mouse state to true when clicked down
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseup', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  if (isMouseDown && canClick) {
+    var intersection = event.detail.intersection;
+    var distance = intersection.distance;
+    // Minimize accidental clicks by checking if the click was within a reasonable distance from the camera
+    if (distance < 10) {
+      var newPosition = intersection.point;
+      newPosition.y = 1.6; // Adjust the camera height to your liking
+
+      var prevClickTime = event.target.previousClickTime;
+      if (prevClickTime) {
+        var currentTime = Date.now();
+        var deltaTime = currentTime - prevClickTime;
+        if (deltaTime <= clickTimeThreshold) {
+          document.querySelector('a-camera').setAttribute('animation', 'property: position; to: ' + newPosition.x + ' ' + newPosition.y + ' ' + newPosition.z + '; dur: 500');
+
+          canClick = false; // Set click state to false
+          setTimeout(function () {
+            canClick = true; // Reset click state to true after cooldown
+          }, cooldownTime);
+        }
+      }
+
+      event.target.previousClickTime = Date.now(); // Store the current click time
+    }
+  }
+  isMouseDown = false; // Reset mouse state to false on click up
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseleave', function () {
+  if (isMouseDown) {
+    document.getElementById('clickablePlane').dispatchEvent(mouseUpEvent); // Trigger mouseup event if mouse leaves clickablePlane area while still clicked down
+  }
+  isMouseDown = false; // Reset mouse state to false on mouse leave
+});
+
+</script>
+      
+      
+      <script>
+      AFRAME.registerComponent('look-at-camera', {
+  tick: function () {
+    // Get the camera position
+    var camera = document.querySelector('a-camera');
+    var cameraPosition = camera.getAttribute('position');
+
+    // Get the current position and rotation of the entity
+    var entityPosition = this.el.getAttribute('position');
+    var entityRotation = this.el.getAttribute('rotation');
+
+    // Calculate the rotation that the entity should have to face the camera
+    var targetRotation = Math.atan2(cameraPosition.x - entityPosition.x, cameraPosition.z - entityPosition.z) * 180 / Math.PI;
+
+    // Set the rotation of the entity to face the camera
+    this.el.setAttribute('rotation', { x: entityRotation.x, y: targetRotation, z: entityRotation.z });
+  }
+});
+      
+      </script>
+
+    </a-scene>
+  </body>
+</html>
+

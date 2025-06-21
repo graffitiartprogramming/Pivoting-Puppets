@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
+
+    
+     <!--IMPORT ANIMATION JS-->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-snake.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-aligator.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dinosaur.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dragonfly.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-crab.js"></script>
+    
+    
+    
+
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+          this.addPlayButton = this.addPlayButton.bind(this);
+          this.removePlayButton = this.removePlayButton.bind(this);
+          this.el.addEventListener("loaded", this.addPlayButton);
+          this.el.addEventListener("click", this.removePlayButton);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+          this.removePlayButton();
+        },
+        addPlayButton: function () {
+          var playButton = document.createElement("a-triangle");
+          playButton.setAttribute("scale", "0.2 0.2 0.2");
+          playButton.setAttribute("position", "0 0 0.1");
+          playButton.setAttribute("color", "#fff");
+          playButton.setAttribute("rotation", "0 0 30");
+          playButton.setAttribute(
+            "material",
+            "side: double; transparent: true; opacity: 0.8;"
+          );
+          playButton.setAttribute("play-video", "");
+          this.el.appendChild(playButton);
+          this.playButton = playButton;
+        },
+        removePlayButton: function () {
+          if (this.playButton) {
+            this.playButton.object3D.visible = false;
+          }
+        },
+      });
+
+      AFRAME.registerComponent("play-video", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+          this.el.addEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.parentNode.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.parentNode.object3D.visible = true;
+          videoEl.play();
+          this.el.parentNode.components["play-on-click"].removePlayButton();
+        },
+      });
+    </script>
+
+    <style>
+      #splash {
+        font-family: Courier;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Black translucent background */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* Set the z-index to be on top of everything else */
+      }
+
+      #splash h1 {
+        font-size: 3em;
+        color: white;
+      }
+
+      #splash p {
+        font-size: 1.5em;
+        color: white;
+        margin-top: 1em;
+      }
+
+      /* Hide the splash screen when it's clicked */
+      #splash.clicked {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="splash">
+      <h1>Instructions</h1>
+      <center>
+        <img
+          src="https://cdn.glitch.global/937b71eb-5edd-4927-a143-9af0071946f2/hand%20graphic.svg?v=1679248516544"
+        />
+        <p>
+          View provided art through your device's camera for full
+          experience
+        </p>
+        <br />
+        <p>click anywhere to start</p>
+      </center>
+    </div>
+
+    <a-scene
+      mindar-image="imageTargetSrc: https://graffitiartprogramming.github.io/pivoting-puppets/targetsss.mind?v=1695310979526;
+                           filterMinCF:0.0001; 
+                           filterBeta: 0.001"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+       
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    
+
+      <!--SNAKE-->
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity rotation="0 0 0" position="0 0 0">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="1.5"
+            height="1.5"
+            animate-crab
+          ></a-image>
+        </a-entity>
+      </a-entity>
+        
+    <a-entity mindar-image-target="targetIndex: 1">
+        <a-entity rotation="0 0 0" position="0 0 0">
+          <a-image
+            position="-0 0 0"
+            rotation="0 0 0"
+            width="1"
+            height="1"
+            animate-dinosaur
+          ></a-image>
+        </a-entity>
+      </a-entity>
+      
+      
+    <a-entity mindar-image-target="targetIndex: 2">
+      <a-entity rotation="0 0 0" position="0 0 0">
+          <a-image
+            position="-0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-dragonfly
+          ></a-image>
+        </a-entity>
+      </a-entity>
+      
+    <a-entity mindar-image-target="targetIndex: 3">
+      <a-entity rotation="0 0 0" position="0 0 0">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-snake
+          ></a-image>
+        </a-entity>
+      </a-entity>
+      
+    <a-entity mindar-image-target="targetIndex: 4">
+      <a-entity rotation="0 0 0" position="0 0 0">
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-aligator
+          ></a-image>
+        </a-entity>
+      </a-entity>
+
+  
+    </a-scene>
+
+    <script>
+      // Add an event listener to the document that listens for a click on the splash screen
+      document.getElementById("splash").addEventListener("click", function () {
+        // Add the "clicked" class to the splash screen, which will hide it
+        this.classList.add("clicked");
+      });
+    </script>
+
+    <script>
+      function startTyping() {
+        var poemText = document.querySelector("#poem-text");
+        poemText.setAttribute("value", "");
+        poemText.setAttribute("animation", "to: The full text of your poem");
+      }
+    </script>
+  </body>
+</html>
+

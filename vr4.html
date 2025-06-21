@@ -1,0 +1,592 @@
+<html>
+  <title>vr4</title>
+  <head>
+    
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N085VGW7DR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N085VGW7DR');
+</script>
+    
+    
+    
+    <!--    Place the script for aframe here     -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe.min.js"></script>
+    <!-- Link Clicking -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-href-component.min.js"></script>
+    <!--     Place the script for aframe extras here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-extras.js"></script>
+    <script src="movement-controls.js"></script>
+    <!--     Place the script for the environment component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-environment-component.min.js"></script>
+
+    <!--     Place the script for the particle system component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-particle-system-component.min.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-event-set-component.min.js"></script>
+    
+
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//randomartwork.js"></script>
+
+    
+    
+    
+      <!--IMPORT ANIMATION JS-->
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//random-animation.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-snake.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-aligator.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dinosaur.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dragonfly.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-crab.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-1.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-2.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-3.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-4.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-blueguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-orangeguy.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-ant.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fireguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-giraffe.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-carrot.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-flower.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-bat.js"></script>
+
+        <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-bear.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-thwomp.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fish.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-horseshoecrab.js"></script>
+  
+
+
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+        },
+      });
+    </script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!---Hide controls on interaction-->
+    
+    <script>
+   AFRAME.registerComponent("hide-controls-on-interact", {
+  init: function () {
+    const raycasterEl = this.el;
+
+    // Get a reference to the "controls" entity
+    const controlsEntity = document.querySelector("#controls");
+
+    // Function to hide the "controls" entity
+    function hideControls() {
+      if (controlsEntity) {
+        controlsEntity.setAttribute("text", "opacity", "0");
+      }
+    }
+
+    // Add an event listener to the raycaster for the "raycaster-intersected" event
+    raycasterEl.addEventListener("raycaster-intersected", () => {
+      hideControls();
+    });
+
+    // Add an event listener to the raycaster for the "raycaster-intersected-cleared" event
+    raycasterEl.addEventListener("raycaster-intersected-cleared", () => {
+      // You can choose to show the "controls" entity again when the raycast is cleared.
+      // For example, uncomment the following line to show it:
+      // controlsEntity.setAttribute("text", "opacity", "0.5");
+    });
+  },
+});
+
+
+
+    </script>
+   
+    
+    
+    
+    
+    
+  </head>
+
+  <body>
+    
+    
+    <script>
+// create the splash screen element
+const splashScreen = document.createElement('div');
+splashScreen.style.position = 'fixed';
+splashScreen.style.top = '0';
+splashScreen.style.left = '0';
+splashScreen.style.width = '100%';
+splashScreen.style.height = '100%';
+splashScreen.style.backgroundColor = 'rgba(0,0,0,0.7)';
+splashScreen.style.zIndex = '9999';
+
+// add the instructions to the splash screen
+const instructions = document.createElement('div');
+instructions.style.color = '#fff';
+instructions.style.textAlign = 'center';
+instructions.style.marginTop = '50vh';
+instructions.style.transform = 'translateY(-50%)';
+instructions.style.fontSize = '24px';
+instructions.style.fontWeight = 'bold';
+
+const line1 = document.createElement('p');
+line1.innerText = 'This is an interactive gallery application';
+instructions.appendChild(line1);
+
+const line2 = document.createElement('p');
+line2.innerText = '...';
+instructions.appendChild(line2);
+
+const line3 = document.createElement('p');
+line3.innerText = 'click the ground to navigate around the exhibit';
+instructions.appendChild(line3);
+      
+const line4 = document.createElement('p');
+line4.innerText = 'click anywhere to begin';
+instructions.appendChild(line4);
+
+splashScreen.appendChild(instructions);
+
+// add the splash screen to the body
+document.body.appendChild(splashScreen);
+
+// create the audio element
+const audioElement = new Audio('url');
+audioElement.loop = true;
+
+// add an event listener to the splash screen to start the audio and remove the splash screen on click
+splashScreen.addEventListener('click', () => {
+  audioElement.play();
+  splashScreen.remove();
+});
+</script>     
+    
+    <a-assets>
+       <a-asset-item
+          id="stage"
+          src="https://graffitiartprogramming.github.io/pivoting-puppets/artgalleryblank.gltf?v=1693951574355"
+        ></a-asset-item> 
+      <a-asset-item
+          id="stagecollision"
+          src="https://graffitiartprogramming.github.io/pivoting-puppets/artgalleryblankcollision.gltf?v=1693952347764"
+          
+        ></a-asset-item> 
+      
+      
+    </a-assets>
+    
+    
+    <a-scene
+      fog="type:linear;
+           color: black"
+      vr-mode-ui="enabled: false"
+    >
+      
+      
+      
+          <!---SKY-->
+      
+
+      <!-- Asset Management System-->
+
+      
+
+      <!--CAMERA-->
+      
+      <a-entity id="cameraRig" position="0 0 0">
+      <a-entity
+        rotation="0 0 0"
+        id="pov"
+        animation="property: position; startEvents: go"
+      >
+        <a-camera look-controls wasd-controls-enabled="true">
+          <a-entity
+            cursor="rayOrigin: mouse"
+            raycaster="objects: #clickablePlane"
+                 
+          >
+          </a-entity>
+        </a-camera>
+      </a-entity>
+      </a-entity>
+      
+       
+      
+
+      
+<!-- Scene -->
+      <a-entity gltf-model="#stage" 
+                shadow="cast: false; receive: false"
+                rotation="0 0 0"
+                position="-1 0 2"
+                >
+      </a-entity>
+
+      
+      
+      <a-entity
+  id="clickablePlane"
+  gltf-model="#stagecollision"
+   shadow="cast: false; receive: false" 
+          position="-1 0.02 2"
+          material="opacity: 0;"
+></a-entity>
+
+<a-entity position="-0.98892 2.29063  -0.77674" 
+          rotation="0 90 0" 
+          scale="8 8 1" 
+          text="value: st.ART 
+                Gallery; 
+                
+                color: #4a0d72; 
+                anchor: right; 
+                align: right; 
+                font: mozillavr">
+      
+      </a-entity>
+      
+      
+      
+<a-entity position="-0.98892 1.62567 -0.77674" 
+          rotation="0 90 0" 
+          scale="2 2 1" 
+          text="value: virtual reality 
+                exhibition space; 
+                color: black; 
+                anchor: right; 
+                align: right; 
+                font: mozillavr">
+      
+      </a-entity>
+      
+
+
+
+<a-image src="https://graffitiartprogramming.github.io/pivoting-puppets/GAP%20color-black%20(3).png?v=1693416410592" 
+         position="-0.98892 1.31202 -2.71104" 
+         rotation="0 90 0" 
+         scale="1.01 0.24 0.12" 
+         material="" 
+         geometry=""></a-image>
+      
+      
+
+      
+     
+      
+<a-entity position="-0.98892 1.84726 -1" 
+          rotation="0 90 0" 
+          scale="1 1.25 1" 
+          text="value: st.ART, short for Street Art, is an ever evolving program in which local artists engage children and youth from Winnipeg's Inner City in a wide & diverse range of art forms. Workshops include various visual art,  music, and dance workshops that are provided free throughout Winnipeg's Downtown and North End communities.; 
+                color: black; 
+                anchor: left; 
+                font: kelsonsans; 
+                align: right; 
+                wrapCount: 25">
+      </a-entity>
+ <a-entity position="-0.98892 2 -2.25" 
+          rotation="0 90 0" 
+          scale="1 1.25 1" 
+          text="value: The st.ART Gallery is a virtual space which provides medium to showcase photos of various projects created through st.ART during our recent Summer 2023 program. This exhibit's art rotates every refresh of the webpage; 
+                color: black; 
+                anchor: left; 
+                font: kelsonsans; 
+                align: left; 
+                wrapCount: 25">
+      </a-entity>     
+
+    
+
+      
+      
+
+      <a-text
+        position="-0.98892 1.3 0.8"
+        rotation="0 -145 0"
+        scale="0.1 0.1 0.1"
+        text="align: right
+              font: mozillavr; 
+              value: aaaaa
+              
+              
+              "
+              color="black"
+      ></a-text>
+
+
+<!----ARTWORKS--->
+      
+      
+      <a-entity position="3.61784 1.6 0.9222" random-artwork="" rotation="0 180 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      
+      <a-entity 
+                position="-0.98727 1.6 -5" 
+                random-artwork 
+                rotation="0 90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      
+      <a-entity position="0.57991 1.6 -8.17999" random-artwork="" rotation="">
+        <a-image>
+        </a-image>
+      </a-entity>
+ 
+      <a-entity position="2.84357 1.6 -8.17999" random-artwork="" rotation="">
+        <a-image>
+        </a-image>
+      </a-entity>
+     
+      <a-entity position="4.98634 1.6 -8.17999" random-artwork="" rotation="">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="6.30728 1.6 -3.81608" random-artwork="" rotation="0 -90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="6.30728 1.6 -0.46053" random-artwork="" rotation="0 -90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="6.47797 1.6 -9.41437" random-artwork="" rotation="0 90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="6.47797 1.6 -12.19652" random-artwork="" rotation="0 90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="8.25221 1.6 -13.62532" random-artwork="" rotation="">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="12.07583 1.6 -13.62532" random-artwork="" rotation="">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      
+      <a-entity position="13.7719 1.6 -6.29909" random-artwork="" rotation="0 -90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="13.7719 1.6 -9.08721" random-artwork="" rotation="0 -90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="13.7719 1.6 -12.1108" random-artwork="" rotation="0 -90 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      
+      <a-entity position="11.57432 1.6 -4.55788" random-artwork="" rotation="0 180 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+      
+      <a-entity position="8.83358 1.6 -4.55788" random-artwork="" rotation="0 180 0">
+        <a-image>
+        </a-image>
+      </a-entity>
+     
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!--random puppets-->
+
+<!---3-->
+      <a-entity rotation="0 0 0" position="4 1 -0.5"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+            <a-entity rotation="0 0 0" position="1 1 -6"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+                <a-entity rotation="0 0 0" position="9 1 -9"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+        
+
+
+      <!--GOTO SCRIPT-->
+<script>
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+var canClick = true; // Set initial click state to true
+var cooldownTime = 100; // Set cooldown time in milliseconds
+var isMouseDown = false; // Set initial mouse state to false
+var mouseUpEvent = new Event('mouseup'); // Create mouseup event
+var clickTimeThreshold = isMobile ? 1000 : 1000; // Set the maximum time between mousedown and mouseup events to 1000 ms for touch events on mobile devices, and 0 ms for mouse click events on desktop devices.
+
+document.getElementById('clickablePlane').addEventListener('mousedown', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  isMouseDown = true; // Set mouse state to true when clicked down
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseup', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  if (isMouseDown && canClick) {
+    var intersection = event.detail.intersection;
+    var distance = intersection.distance;
+    // Minimize accidental clicks by checking if the click was within a reasonable distance from the camera
+    if (distance < 10) {
+      var newPosition = intersection.point;
+      newPosition.y = 1.6; // Adjust the camera height to your liking
+
+      var prevClickTime = event.target.previousClickTime;
+      if (prevClickTime) {
+        var currentTime = Date.now();
+        var deltaTime = currentTime - prevClickTime;
+        if (deltaTime <= clickTimeThreshold) {
+          document.querySelector('a-camera').setAttribute('animation', 'property: position; to: ' + newPosition.x + ' ' + newPosition.y + ' ' + newPosition.z + '; dur: 500');
+
+          canClick = false; // Set click state to false
+          setTimeout(function () {
+            canClick = true; // Reset click state to true after cooldown
+          }, cooldownTime);
+        }
+      }
+
+      event.target.previousClickTime = Date.now(); // Store the current click time
+    }
+  }
+  isMouseDown = false; // Reset mouse state to false on click up
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseleave', function () {
+  if (isMouseDown) {
+    document.getElementById('clickablePlane').dispatchEvent(mouseUpEvent); // Trigger mouseup event if mouse leaves clickablePlane area while still clicked down
+  }
+  isMouseDown = false; // Reset mouse state to false on mouse leave
+});
+
+</script>
+      
+      
+          <script>
+      AFRAME.registerComponent('look-at-camera', {
+  tick: function () {
+    // Get the camera position
+    var camera = document.querySelector('a-camera');
+    var cameraPosition = camera.getAttribute('position');
+
+    // Get the current position and rotation of the entity
+    var entityPosition = this.el.getAttribute('position');
+    var entityRotation = this.el.getAttribute('rotation');
+
+    // Calculate the rotation that the entity should have to face the camera
+    var targetRotation = Math.atan2(cameraPosition.x - entityPosition.x, cameraPosition.z - entityPosition.z) * 180 / Math.PI;
+
+    // Set the rotation of the entity to face the camera
+    this.el.setAttribute('rotation', { x: entityRotation.x, y: targetRotation, z: entityRotation.z });
+  }
+});
+      
+      </script>  
+      
+
+    </a-scene>
+  </body>
+</html>
+

@@ -1,0 +1,505 @@
+<html>
+  <title>vr3</title>
+  <head>
+    
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N085VGW7DR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N085VGW7DR');
+</script>
+    
+    
+    <!--    Place the script for aframe here     -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe.min.js"></script>
+    <!-- Link Clicking -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-href-component.min.js"></script>
+    <!--     Place the script for aframe extras here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-extras.js"></script>
+    <script src="movement-controls.js"></script>
+    <!--     Place the script for the environment component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-environment-component.min.js"></script>
+
+    <!--     Place the script for the particle system component here -->
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-particle-system-component.min.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//aframe-event-set-component.min.js"></script>
+    
+    
+    <!--IMPORT ANIMATION JS-->
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//random-animation.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-snake.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-aligator.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dinosaur.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-dragonfly.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-crab.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-1.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-2.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-3.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//winter-puppet-4.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-blueguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-orangeguy.js"></script>
+    
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-ant.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fireguy.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-giraffe.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-carrot.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-peyton-flower.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-frog.js"></script>
+    <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-pritchard-bat.js"></script>
+
+        <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-bear.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-thwomp.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-fish.js"></script>
+     <script src="https://graffitiartprogramming.github.io/pivoting-puppets//animate-horseshoecrab.js"></script>
+    
+
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+        },
+      });
+    </script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!---LINK TRAVERSAL-->
+   
+     <script>
+      /// Function to randomize the "dur" attribute for a specific animation entity
+function randomizeAnimationSpeed(entityId) {
+  const animationElement = document.querySelector(entityId);
+  if (animationElement) {
+    // Define the minimum and maximum duration (in milliseconds)
+    const minDuration = 1000; // Minimum duration
+    const maxDuration = 4000; // Maximum duration
+
+    // Calculate a random duration within the specified range
+    const randomDuration = Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
+
+    // Set the "dur" attribute of the animation element
+    animationElement.setAttribute('animation', `property: rotation; easing: linear; to: 0 360 0; loop: true; dur: ${randomDuration}; easing: linear; autoplay: true`);
+  }
+}
+
+// Call the function to randomize animation speed for the entity with ID "runner4"
+randomizeAnimationSpeed('#runner4');
+
+
+
+      </script>
+    
+    
+    
+    
+  </head>
+
+  <body>
+    
+    <a-assets>
+       <a-asset-item
+          id="stage"
+          src="https://graffitiartprogramming.github.io/pivoting-puppets/track1.gltf?v=1693599034521"
+        ></a-asset-item> 
+      <a-image
+                    id="grass"
+                    src="https://graffitiartprogramming.github.io/pivoting-puppets/grass.png?v=1693598157679">
+      
+      </a-image>
+    </a-assets>
+    
+    
+    <a-scene
+      fog="type:linear;
+           color: black"
+             vr-mode-ui="enabled: false"
+    >
+      
+      
+      
+          <!---SKY-->
+      
+      <a-sky animation="property: rotation; to: 360 360 0; loop: NaN; easing: linear; dur: 590000" src="https://graffitiartprogramming.github.io/pivoting-puppets/bluesky.jpg?v=1693603076109" material="shader: ios10hls" geometry="" rotation="3.034372881355932 3.034372881355932 0">
+</a-sky>
+      <!-- Asset Management System-->
+
+      
+
+      <!--CAMERA-->
+      
+      <a-entity id="cameraRig" position="0 0 0">
+      <a-entity
+        rotation="0 0 0"
+        id="pov"
+        animation="property: position; startEvents: go"
+      >
+        <a-camera look-controls wasd-controls-enabled="true"
+                   id="camera">
+          <a-entity
+            cursor="rayOrigin: mouse"
+            raycaster="objects: #clickablePlane"
+          >
+          </a-entity>
+        </a-camera>
+      </a-entity>
+      </a-entity>
+      
+
+
+
+      <!-- Scene -->
+      <a-entity gltf-model="#stage" 
+                shadow="cast: false; receive: false"
+                rotation="0 -90 0" 
+                position="-11.43 0.03 -13.84"
+                >
+      </a-entity>
+
+      
+      
+      
+      <a-circle
+  id="clickablePlane"
+  material="transparency: true; opacity: 0;"
+  position="-11.43 0.03 -13.84" 
+               rotation="-90 0 0"
+  scale="1 1 1"
+  geometry="primitive:  ring;  
+            radiusInner:  10;  
+            radiusOuter:  17"
+  
+></a-circle>
+ 
+      
+      
+      
+      
+      
+    
+    <!-- ARTWORKS -->
+      
+      
+      
+      <a-entity rotation="0 0 0" position="4 1 2.451"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      <a-entity rotation="0 0 0" position="2 1 2.797"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      <a-entity rotation="0 0 0" position="6 1 1"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      <a-entity rotation="0 0 0" position="5 1 0"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      <a-entity rotation="0 0 0" position="6 1 -2"
+                look-at-camera>
+          <a-image
+            position="0 0 0"
+            rotation="0 0 0"
+            width="2"
+            height="1.5"
+            animate-random
+                   material="alphaTest: 0.5; transparent: true;"
+          ></a-image>
+        </a-entity>
+      
+      
+      
+      <!---grass-->
+      
+       
+     <a-image position="-2.07993 0.5 0.37964" rotation="0 174.38382893829592 0" width="1" height="1" look-at-camera="" src="#grass" material="alphaTest: 0.5" geometry=""></a-image>
+     <a-image position="-4.2194 0.21138 2.50022" rotation="0 174.38382893829592 0" width="1" height="1" look-at-camera="" src="#grass" material="alphaTest: 0.5" geometry=""></a-image> 
+     <a-image position="-8.41454 0.21138 -5.72648" rotation="0 174.38382893829592 0" width="1" height="1" look-at-camera="" src="#grass" material="alphaTest: 0.5" geometry=""></a-image> 
+      <a-image position="-4.5815 0.21138 -19.94992" rotation="0 174.38382893829592 0" width="1" height="1" look-at-camera="" src="#grass" material="alphaTest: 0.5" geometry=""></a-image>
+      
+      
+
+<!----Track-->
+    
+      <a-entity  position="-11.43 0.03 -13.84" >
+    
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:10000;
+                            easing: linear;
+                             autoplay: true"
+                  id="runner1"
+                  >
+          <a-image
+            position="11.26302 0.89187 -0.12287"
+            rotation="0 0 0"
+            width="2.5"
+            height="2"
+            animate-random
+                   
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+    
+      
+      
+      
+    <!---2-->
+      <a-entity  position="-11.43 0.03 -13.84" >
+    
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:12000;
+                            easing: linear;
+                             autoplay: true"
+                  id="runner2"
+                  >
+          <a-image
+            position="12.24999 0.89187 -2.87377"
+            rotation="0 15 0"
+            width="2.5"
+            height="2"
+            animate-random
+                   
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      <!---3-->
+      <a-entity  position="-11.43 0.03 -13.84" >
+    
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:10000;
+                            easing: linear;
+                             autoplay: true"
+                  id="runner3"
+                 >
+          <a-image
+            position="12.53533 0.89187 -6.88761" 
+                   rotation="0 25 0"
+            width="2.5"
+            height="2"
+            animate-random
+                   
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      <!---4-->
+      <a-entity  position="-11.43 0.03 -13.84" >
+    
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:12000;
+                            easing: linear;
+                             autoplay: true"
+                  id="runner4"
+                 >
+          <a-image
+            position="11.84933 0.89187 -10.32643" 
+                   rotation="0 45 0"
+            width="2.5"
+            height="2"
+            animate-random
+                   
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+   
+    
+
+      
+      
+
+
+      
+
+
+      <!--GOTO SCRIPT-->
+<script>
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+var canClick = true; // Set initial click state to true
+var cooldownTime = 100; // Set cooldown time in milliseconds
+var isMouseDown = false; // Set initial mouse state to false
+var mouseUpEvent = new Event('mouseup'); // Create mouseup event
+var clickTimeThreshold = isMobile ? 1000 : 1000; // Set the maximum time between mousedown and mouseup events to 1000 ms for touch events on mobile devices, and 0 ms for mouse click events on desktop devices.
+
+document.getElementById('clickablePlane').addEventListener('mousedown', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  isMouseDown = true; // Set mouse state to true when clicked down
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseup', function (event) {
+  if (event.target.getAttribute('class') === 'link') return; // Return if the clicked element has the class 'link'
+  if (isMouseDown && canClick) {
+    var intersection = event.detail.intersection;
+    var distance = intersection.distance;
+    // Minimize accidental clicks by checking if the click was within a reasonable distance from the camera
+    if (distance < 10) {
+      var newPosition = intersection.point;
+      newPosition.y = 1.6; // Adjust the camera height to your liking
+
+      var prevClickTime = event.target.previousClickTime;
+      if (prevClickTime) {
+        var currentTime = Date.now();
+        var deltaTime = currentTime - prevClickTime;
+        if (deltaTime <= clickTimeThreshold) {
+          document.querySelector('a-camera').setAttribute('animation', 'property: position; to: ' + newPosition.x + ' ' + newPosition.y + ' ' + newPosition.z + '; dur: 500');
+
+          canClick = false; // Set click state to false
+          setTimeout(function () {
+            canClick = true; // Reset click state to true after cooldown
+          }, cooldownTime);
+        }
+      }
+
+      event.target.previousClickTime = Date.now(); // Store the current click time
+    }
+  }
+  isMouseDown = false; // Reset mouse state to false on click up
+});
+
+document.getElementById('clickablePlane').addEventListener('mouseleave', function () {
+  if (isMouseDown) {
+    document.getElementById('clickablePlane').dispatchEvent(mouseUpEvent); // Trigger mouseup event if mouse leaves clickablePlane area while still clicked down
+  }
+  isMouseDown = false; // Reset mouse state to false on mouse leave
+});
+
+</script>
+
+      
+      <script>
+      AFRAME.registerComponent('look-at-camera', {
+  tick: function () {
+    // Get the camera position
+    var camera = document.querySelector('a-camera');
+    var cameraPosition = camera.getAttribute('position');
+
+    // Get the current position and rotation of the entity
+    var entityPosition = this.el.getAttribute('position');
+    var entityRotation = this.el.getAttribute('rotation');
+
+    // Calculate the rotation that the entity should have to face the camera
+    var targetRotation = Math.atan2(cameraPosition.x - entityPosition.x, cameraPosition.z - entityPosition.z) * 180 / Math.PI;
+
+    // Set the rotation of the entity to face the camera
+    this.el.setAttribute('rotation', { x: entityRotation.x, y: targetRotation, z: entityRotation.z });
+  }
+});
+      
+      </script>
+      
+     
+      
+      
+      
+    </a-scene>
+  </body>
+</html>
+

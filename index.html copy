@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>GAP Pivoting Puppets</title>
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
+  <meta name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5;"> 
+
+  <style>
+ body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://graffitiartprogramming.github.io/pivoting-puppets/clawmoney.jpeg?v=1693418224615");
+            background-position: center;
+   background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            overflow: auto; /* Hide vertical scroll */
+        }
+</style>
+  
+      <style>
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(-30deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .hinge {
+            animation: swing 4s infinite;
+             transform-origin: 573px 180px;
+        }
+    </style>
+
+  
+  
+  
+<body>
+
+  
+  
+  
+  
+  
+  
+  
+
+  <table 
+         
+         
+         width="50%" height="100%" align="center" cellspacing="30" border="0" bgcolor= "#EC008B">
+		<tbody>
+			<tr>
+				<td valign="top" align="center">
+          
+
+
+	<div class="menu">
+	<em> <h1 class="font5">
+     <img src="https://graffitiartprogramming.github.io/pivoting-puppets/pivotinglogo.gif?v=1694212865727"
+         width="400"></h1>
+
+    </em>
+    
+    
+    
+    
+    
+    <div style= "background-color: #FFFFFF">
+      
+   
+    
+    
+    <p class="font2">
+  <a  href="https://www.graffitigallery.ca/">main website</a></p> 
+      <p class="font2">
+  <a class="button-1" role="button" href="https://graffitiartprogramming.github.io/pivoting-puppets/vr1.html">VR 1</a> 
+	<a class="button-1" role="button" href="https://graffitiartprogramming.github.io/pivoting-puppets/vr2.html">VR 2</a>
+  <a class="button-1" role="button" href="https://graffitiartprogramming.github.io/pivoting-puppets/vr3.html">VR 3</a> 
+  <a class="button-1" role="button" href="https://graffitiartprogramming.github.io/pivoting-puppets/vr4.html">VR 4</a>
+  </p>      
+    
+  <p class="font3">
+    
+Located beneath the rail underpass on Forks Market road in Winnipeg MB, "Pivoting Puppets" is a project created
+during Graffiti Art Programming Inc.’s st.ART Program during the summer of 2023 with participants from Ralph
+Brown Community Centre and Pritchard Park. 
+  <br>
+  <br>  
+    The project explores a creative collision between
+art materiality and virtual reality. Throughout the summer a series of individual puppets were
+formed out of foam and fasteners, adding both personality and mobility intended for stop-
+motion. Using the links below, see how participants moved their puppets into web based mediums to bring you
+experiences beyond the underpass - scan the QR codes to watch how these puppets pivot.
+
+    </p>
+     
+          </div>
+     </div>
+          
+          <img src="https://graffitiartprogramming.github.io/pivoting-puppets/GAP%20color-black%20(3).png?v=1693416410592"
+         width="400">
+    
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+	
+</body>
+
+</html>
+
